@@ -199,6 +199,7 @@ class MerchantSlotMachine : Actor
 		Height 50;
 		+SOLID
 		+SLIDESONWALLS
+		+PUSHABLE
 	}
 
 	States
