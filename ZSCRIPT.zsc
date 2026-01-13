@@ -124,6 +124,7 @@ class MerchantHandler : EventHandler
 	
 	override void WorldThingDied(WorldEvent e)
 	{
+		if (!(e && e.Thing && e.Thing.bIsMonster)) return;
 		e.Thing.A_SpawnItemEx('MercenaryBucks', 0, 0, 0, frandom(0.5, 2.0), 0, frandom(1.0, 4.0), random(0, 359), SXF_NOCHECKPOSITION);
 	}
 	
