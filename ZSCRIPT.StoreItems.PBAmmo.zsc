@@ -2,7 +2,7 @@ class PBLowCalStore : StoreItem
 {
 	override int GetType() { return SType_Ammo; }
 	override string GetCategory() { return "Project Brutality Ballistic Ammo"; }
-	override Name GetItem() { return 'BulletCartridge'; }
+	override Name GetItem() { return 'PB_LowCalMag'; }
 	override int GetAmount() { return 15; }
 	override string GetIcon() { return "MBLKA0"; }
 	override string GetDisplayName() { return "Low Caliber Rounds"; }
@@ -14,7 +14,7 @@ class PBHighCalStore : StoreItem
 {
 	override int GetType() { return SType_Ammo; }
 	override string GetCategory() { return "Project Brutality Ballistic Ammo"; }
-	override Name GetItem() { return 'NewClip'; }
+	override Name GetItem() { return 'PB_HighCalMag'; }
 	override int GetAmount() { return 10; }
 	override string GetIcon() { return "CLIPA0"; }
 	override string GetDisplayName() { return "High Caliber Rounds"; }
@@ -26,7 +26,7 @@ class PBShellStore : StoreItem
 {
 	override int GetType() { return SType_Ammo; }
 	override string GetCategory() { return "Project Brutality Ballistic Ammo"; }
-	override Name GetItem() { return 'NewShell'; }
+	override Name GetItem() { return 'PB_Shell'; }
 	override int GetAmount() { return 4; }
 	override string GetIcon() { return "SHELA0"; }
 	override string GetDisplayName() { return "Shotgun Shells"; }
@@ -38,7 +38,7 @@ class PBRocketStore : StoreItem
 {
 	override int GetType() { return SType_Ammo; }
 	override string GetCategory() { return "Project Brutality Ordinace Ammo"; }
-	override Name GetItem() { return 'NewRocketAmmo'; }
+	override Name GetItem() { return 'PB_RocketAmmo'; }
 	override string GetIcon() { return "R0CKA0"; }
 	override string GetDisplayName() { return "H.E.A.T. Rocket"; }
 	override int GetBasePrice() { return 40; }
@@ -49,7 +49,7 @@ class PBCellStore : StoreItem
 {
 	override int GetType() { return SType_Ammo; }
 	override string GetCategory() { return "Project Brutality Ordinace Ammo"; }
-	override Name GetItem() { return 'NewCell'; }
+	override Name GetItem() { return 'PB_Cell'; }
 	override string GetIcon() { return "CELLA0"; }
 	override string GetDisplayName() { return "Energy Cell"; }
 	override int GetBasePrice() { return 60; }
@@ -60,7 +60,7 @@ class PBGrenadeStore : StoreItem
 {
 	override int GetType() { return SType_Ammo; }
 	override string GetCategory() { return "Project Brutality Ordinace Ammo"; }
-	override Name GetItem() { return 'HandGrenadeAmmo'; }
+	override Name GetItem() { return 'PB_GrenadeAmmo'; }
 	override string GetIcon() { return "PGRND0"; }
 	override string GetDisplayName() { return "Frag Grenade"; }
 	override int GetBasePrice() { return 20; }
