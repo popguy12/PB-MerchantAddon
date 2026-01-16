@@ -1,0 +1,61 @@
+class DSC_SpriteBreathing //: DSComponent
+{
+	void Tick()
+	{
+		if (!BreatheStart)
+		{
+			BreatheStart = true;
+			return;
+		}
+
+		if (BreatheStepHold > 0)
+		{
+			BreatheStepHold--;
+			return;
+		}
+
+		if (BreatheHold > 0)
+		{
+			BreatheHold--;
+			return;
+		}
+
+		if (BreatheIndex < BreatheStepsHalf)
+		{
+			BreatheScaleAdd += BreathescaleStep;
+			BreatheStepHold = BreatheStepDelay;
+			if (++BreatheIndex == BreatheStepsHalf)
+			{
+				BreatheHold = BreatheInOutDelay;
+			}
+		}
+		else if (BreatheIndex >= BreatheStepsHalf)
+		{
+			BreatheScaleAdd -= BreathescaleStep;
+			BreatheStepHold = BreatheStepDelay;
+			if (++BreatheIndex == BreatheSteps)
+			{
+				BreatheIndex = 0;
+				BreatheHold = BreatheInOutDelay;
+			}
+		}
+	}
+
+	// [Ace] Always go for even values. Never, ever go for odd values. Only villains do that. Higher values mean smoother animation.
+	// This number is the number of frames from completely exhaled to completely inhaled, to exhaling.
+	const BreatheSteps = 4;
+
+	const BreathescaleStep = BreatheMaxScale / BreatheSteps;
+	const BreatheStepsHalf = BreatheSteps / 2;
+
+	const BreatheInOutDelay = 30;
+	const BreatheStepDelay = 4;
+	const BreatheMaxScale = 0.03;
+	
+	private bool BreatheStart;
+
+	double BreatheScaleAdd;
+	protected int BreatheIndex;
+	protected int BreatheHold;
+	protected int BreatheStepHold;
+}
