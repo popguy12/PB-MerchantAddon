@@ -6,6 +6,8 @@ version "4.5"
 #include "ZSCRIPT.MerchantSkins.zsc"
 #include "ZSCRIPT.SlotMachine.zsc"
 
+#include "ZScript/Components/SpriteBreathing.zsc"
+
 class MerchantRewardStorage : Thinker
 {
 	int Money;
@@ -354,10 +356,23 @@ class HDMerchantBody : CustomInventory
 
 class HDMerchant : Actor abstract
 {
+	private double OriginalAngle;
+	private double OriginalScaleY;
+	
+	DSC_SpriteBreathing Breather;
+
+	override void PostBeginPlay()
+	{
+		Breather = new('DSC_SpriteBreathing');
+		OriginalAngle = Angle;
+
+		Super.PostBeginPlay();
+	}
+
 	override void Tick()
 	{
 		A_SpriteOffset(0, SOffsetY);
-
+		
 		if (PiggyBack)
 		{
 			A_Face(PiggyBack);
@@ -385,7 +400,9 @@ class HDMerchant : Actor abstract
 				A_Face(target, 15);
 			}
 		}
-
+		
+		CheckBreathing();
+		
 		Super.Tick();
 	}
 
@@ -435,63 +452,22 @@ class HDMerchant : Actor abstract
 	// [Ace] This is complete fucking overkill. It could have been done in like 5 lines of code but I wanted a more "generic" solution.
 	protected void CheckBreathing()
 	{
-		if (BreatheStepHold > 0)
-		{
-			BreatheStepHold--;
-			return;
-		}
-
-		if (BreatheHold > 0)
-		{
-			BreatheHold--;
-			return;
-		}
-
-		if (BreatheIndex < BreatheStepsHalf)
-		{
-			A_SetScale(Scale.X, Scale.Y + BreatheScaleStep);
-			BreatheStepHold = BreatheStepDelay;
-			if (++BreatheIndex == BreatheStepsHalf)
-			{
-				BreatheHold = BreatheInOutDelay;
-			}
-		}
-		else if (BreatheIndex >= BreatheStepsHalf)
-		{
-			A_SetScale(Scale.X, Scale.Y - BreatheScaleStep);
-			BreatheStepHold = BreatheStepDelay;
-			if (++BreatheIndex == BreatheSteps)
-			{
-				BreatheIndex = 0;
-				BreatheHold = BreatheInOutDelay;
-			}
-		}
+		Breather.Tick();
+		if(!OriginalScaleY) OriginalScaleY = Scale.Y;
+		double crouchFactor = PiggyBack ? PiggyBack.Player.crouchfactor : 1.0;
+		Scale.y = OriginalScaleY + (Breather ? Breather.BreatheScaleAdd : 0);
+		Scale.Y = crouchFactor * ((Scale.Y >= OriginalScaleY) ? Scale.Y : OriginalScaleY);
 	}
 
 	protected void BuyingIdle(StateLabel goAwayState, string snd)
 	{
-		CheckBreathing();
+		//CheckBreathing();
 		if (!PlayerIsNear)
 		{
 			A_StartSound(snd, CHAN_VOICE);
 			SetStateLabel(goAwayState);
 		}
 	}
-
-	const BreatheInOutDelay = 30;
-	const BreatheStepDelay = 4;
-	const BreatheMaxScale = 0.03;
-
-	// [Ace] Always go for even values. Never, ever go for odd values. Only villains do that. Higher values mean smoother animation.
-	// This number is the number of frames from completely exhaled to completely inhaled, to exhaling.
-	const BreatheSteps = 4;
-
-	const BreatheScaleStep = BreatheMaxScale / BreatheSteps;
-	const BreatheStepsHalf = BreatheSteps / 2;
-	private int BreatheIndex;
-	private int BreatheHold;
-	private int BreatheStepHold;
-
 	private bool PlayerIsNear;
 
 	private PlayerPawn PiggyBack;
@@ -568,10 +544,17 @@ class MercenaryBucks : Ammo
 		return true;
 	}
 	*/
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		bSPRITEFLIP = random(0,1);
+	}
+	
 	private int BuckFrame;
 
 	Default
 	{
+		+INVENTORY.INVBAR;
 		+FORCEXYBILLBOARD
 		Tag "Bucks";
 		Inventory.Icon "MBCKA0";
