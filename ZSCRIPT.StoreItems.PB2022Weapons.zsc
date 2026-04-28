@@ -1,0 +1,195 @@
+// ==============================
+// MELEE WEAPONS
+// ==============================
+
+class PBBeamKatanaStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Melee"; }
+	override Name GetItem() { return 'PB_BeamKatana'; }
+	override string GetIcon() { return "BVATK0"; }
+	override string GetDisplayName() { return "Beam Katana"; }
+	override int GetBasePrice() { return 600; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBRazorjackStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Melee"; }
+	override Name GetItem() { return 'Razorjack'; }
+	override string GetIcon() { return "RAZGX0"; }
+	override string GetDisplayName() { return "Razorjack"; }
+	override int GetBasePrice() { return 650; }
+	override string GetFlavorText() { return ""; }
+}
+
+// ==============================
+// PISTOLS & SMGs
+// ==============================
+
+class PBHellPistolerStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Pistols & SMGs"; }
+	override Name GetItem() { return 'HellPistoler'; }
+	override string GetIcon() { return "ARMZA0"; }
+	override string GetDisplayName() { return "Hell Pistoler"; }
+	override int GetBasePrice() { return 650; }
+	override string GetFlavorText() { return ""; }
+}
+
+// ==============================
+// SHOTGUNS
+// ==============================
+
+class PBProsurv_LeverActionStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Shotguns"; }
+	override Name GetItem() { return 'LeverAction'; }
+	override string GetIcon() { return "LVR4E0"; }
+	override string GetDisplayName() { return "Lever Action"; }
+	override int GetBasePrice() { return 500; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBProsurv_BallistaStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Shotguns"; }
+	override Name GetItem() { return 'ProSurv_Ballista'; }
+	override string GetIcon() { return "CBOWS0"; }
+	override string GetDisplayName() { return "Project Survival Ballista"; }
+	override int GetBasePrice() { return 700; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBHASGStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Shotguns"; }
+	override Name GetItem() { return 'HASG'; }
+	override string GetIcon() { return "0ESGA0"; }
+	override string GetDisplayName() { return "HASG"; }
+	override int GetBasePrice() { return 850; }
+	override string GetFlavorText() { return ""; }
+}
+
+// ==============================
+// RIFLES
+// ==============================
+
+class PBM41AStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Rifles"; }
+	override Name GetItem() { return 'PB_M41A'; }
+	override string GetIcon() { return "M41AZ0"; }
+	override string GetDisplayName() { return "M41A"; }
+	override int GetBasePrice() { return 650; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBDemonTechMinigunStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Heavy Weapons"; }
+	override Name GetItem() { return 'DemonTechMinigun'; }
+	override string GetIcon() { return "DTM0Z0"; }
+	override string GetDisplayName() { return "Demon Tech Minigun"; }
+	override int GetBasePrice() { return 900; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBExcavatorStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Heavy Weapons"; }
+	override Name GetItem() { return 'PB_Excavator'; }
+	override string GetIcon() { return "5DUNA0"; }
+	override string GetDisplayName() { return "Excavator"; }
+	override int GetBasePrice() { return 900; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBMastermindChaingunStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Heavy Weapons"; }
+	override Name GetItem() { return 'MastermindChaingun'; }
+	override string GetIcon() { return "RMN1H0"; }
+	override string GetDisplayName() { return "Mastermind Chaingun"; }
+	override int GetBasePrice() { return 700; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBOLDHMGStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Heavy Weapons"; }
+	override Name GetItem() { return 'OldHMG'; }
+	override string GetIcon() { return "HMGNA0"; }
+	override string GetDisplayName() { return "OLD HMG"; }
+	override int GetBasePrice() { return 600; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBPaingiverStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Heavy Weapons"; }
+	override Name GetItem() { return 'Paingiver'; }
+	override string GetIcon() { return "W17PA0"; }
+	override string GetDisplayName() { return "Paingiver"; }
+	override int GetBasePrice() { return 800; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBSuperGrenadeLauncherStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Heavy Weapons"; }
+	override Name GetItem() { return 'PB_SuperGL'; }
+	override string GetIcon() { return "GLAUZ0"; }
+	override string GetDisplayName() { return "Super Grenade Launcher"; }
+	override int GetBasePrice() { return 650; }
+	override string GetFlavorText() { return ""; }
+}
+
+// ==============================
+// SPECIAL WEAPONS
+// ==============================
+
+class PBBioAcidLauncherStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Special Weapons"; }
+	override Name GetItem() { return 'BioAcidLauncher'; }
+	override string GetIcon() { return ""; }
+	override string GetDisplayName() { return "Bio Acid Launcher"; }
+	override int GetBasePrice() { return 700; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBPB_DemonExtStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Special Weapons"; }
+	override Name GetItem() { return 'PB_DemonExterminator'; }
+	override string GetIcon() { return "UNMXA0"; }
+	override string GetDisplayName() { return "Demonic Exterminator"; }
+	override int GetBasePrice() { return 1500; }
+	override string GetFlavorText() { return ""; }
+}
+
+class PBMancubusFlameCannonStore : StoreItem
+{
+	override int GetType() { return SType_Weapon; }
+	override string GetCategory() { return "Project Brutality Special Weapons"; }
+	override Name GetItem() { return 'MancubusFlameCannon'; }
+	override string GetIcon() { return "MANAH0"; }
+	override string GetDisplayName() { return "Mancubus Flame Cannon"; }
+	override int GetBasePrice() { return 1500; }
+	override string GetFlavorText() { return ""; }
+}

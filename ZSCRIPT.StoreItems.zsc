@@ -1,4 +1,4 @@
-#include "ZSCRIPT.StoreItems.PBWPWeapons.zsc"
+#include "ZSCRIPT.StoreItems.PB2022Weapons.zsc"
 #include "ZSCRIPT.StoreItems.PBWeapons.zsc"
 #include "ZSCRIPT.StoreItems.PBItems.zsc"
 #include "ZSCRIPT.StoreItems.PBAmmo.zsc"
